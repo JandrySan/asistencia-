@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Registrar Asistencia{% endblock %}
+{% block content %}
+<h1>Registrar Asistencia</h1>
+<form action="{{ url_for('registrar_asistencia') }}" method="POST">
+    <label for="fecha">Fecha:</label><br>
+    <input type="date" id="fecha" name="fecha" value="{{ fecha }}" required>
+    <br><br>
+    <div class="asistencia-lista">
+        {% for p in participantes %}
+        <div class="asistencia-item">
+            <h3>{{ p.nombre }}</h3>
+            <label><input type="checkbox" name="catequesis_{{ p._id }}"> Catequesis</label>
+            <input type="text" name="obs_catequesis_{{ p._id }}" placeholder="Observación Catequesis">
+            <br>
+            <label><input type="checkbox" name="misa_{{ p._id }}"> Misa</label>
+            <input type="text" name="obs_misa_{{ p._id }}" placeholder="Observación Misa">
+        </div>
+        {% endfor %}
+    </div>
+    <button type="submit">Guardar Asistencia</button>
+</form>
+{% endblock %}

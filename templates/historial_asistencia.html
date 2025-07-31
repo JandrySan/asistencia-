@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Historial de Asistencia{% endblock %}
+{% block content %}
+<h1>Historial de Asistencia</h1>
+<ul class="fecha-lista">
+    {% for f in fechas %}
+    <li><a href="{{ url_for('editar_asistencia', fecha=f) }}">{{ f }}</a></li>
+    {% else %}
+    <li>No hay fechas registradas.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

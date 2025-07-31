@@ -1,0 +1,324 @@
+/* Reset básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    background-color: #f3f4f6;
+    min-height: 100vh;
+    color: #1f2937;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 260px;
+    background-color: #1e40af; /* Azul un poco más intenso */
+    color: white;
+    height: 100vh;
+    padding: 30px 20px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar h2 {
+    font-size: 24px;
+    margin-bottom: 40px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.sidebar ul {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+}
+
+.sidebar li {
+    margin-bottom: 18px;
+}
+
+.sidebar a {
+    display: block;
+    background-color: #3b82f6;
+    color: white;
+    text-decoration: none;
+    padding: 12px 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 16px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 6px rgba(59,130,246,0.3);
+}
+
+.sidebar a:hover,
+.sidebar a:focus {
+    background-color: #2563eb;
+    box-shadow: 0 4px 10px rgba(37,99,235,0.6);
+    outline: none;
+}
+
+/* Contenido principal */
+.main-content {
+    margin-left: 280px; /* Ajuste para sidebar más ancho */
+    padding: 40px 40px 60px 40px;
+    flex: 1;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgb(0 0 0 / 0.1);
+    max-width: 960px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+/* Títulos */
+h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #111827;
+    border-bottom: 3px solid #3b82f6;
+    padding-bottom: 8px;
+    max-width: fit-content;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #1e40af;
+}
+
+/* Formularios */
+form input[type="text"],
+form input[type="date"] {
+    padding: 12px 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 480px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+form input[type="text"]:focus,
+form input[type="date"]:focus {
+    border-color: #3b82f6;
+    outline: none;
+}
+
+form button {
+    background-color: #3b82f6;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+form button:hover,
+form button:focus {
+    background-color: #2563eb;
+    box-shadow: 0 6px 15px rgba(37,99,235,0.5);
+    outline: none;
+}
+
+/* Asistencia - Lista */
+.asistencia-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 15px;
+}
+
+.asistencia-item {
+    background: #f9fafb;
+    border: 1px solid #e0e7ff;
+    border-radius: 14px;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.3s;
+}
+
+.asistencia-item:hover {
+    background-color: #eff6ff;
+}
+
+.asistencia-item label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    flex: 1 1 auto;
+}
+
+/* Checkbox estilo */
+.asistencia-item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* Observación input */
+.asistencia-item input[type="text"] {
+    flex: 1 1 250px;
+    margin-left: 15px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 12px;
+    border: 1px solid #cbd5e1;
+    transition: border-color 0.3s;
+}
+
+.asistencia-item input[type="text"]:focus {
+    border-color: #3b82f6;
+    outline: none;
+}
+
+/* Fechas */
+.fecha-lista {
+    list-style: none;
+    margin-top: 10px;
+    padding-left: 0;
+}
+
+.fecha-lista li {
+    margin-bottom: 12px;
+}
+
+.fecha-lista a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: text-decoration 0.3s;
+}
+
+.fecha-lista a:hover,
+.fecha-lista a:focus {
+    text-decoration: underline;
+    outline: none;
+}
+
+/* Lista Participantes */
+#lista-participantes ul {
+    list-style: disc inside;
+    max-width: 500px;
+    margin-bottom: 30px;
+}
+
+#lista-participantes li {
+    padding: 6px 0;
+    font-size: 1.1rem;
+    color: #334155;
+}
+
+/* Tabla de porcentajes */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 1rem;
+}
+
+table th, table td {
+    border: 1px solid #cbd5e1;
+    padding: 14px 18px;
+    text-align: left;
+}
+
+table th {
+    background-color: #e0e7ff;
+    font-weight: 700;
+    color: #1e40af;
+}
+
+/* Flash messages */
+.flash-messages {
+    margin-bottom: 30px;
+}
+
+.alert {
+    padding: 14px 22px;
+    border-radius: 14px;
+    margin-bottom: 16px;
+    font-weight: 700;
+    font-size: 1rem;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.1);
+    max-width: 600px;
+}
+
+.alert.success {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.alert.danger {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.alert.info {
+    background-color: #bfdbfe;
+    color: #1e3a8a;
+}
+
+/* Responsive: para móviles, sidebar oculto y contenido al 100% */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 20px 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .sidebar ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+    }
+    .sidebar li {
+        margin-bottom: 0;
+    }
+    .sidebar a {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    .main-content {
+        margin: 20px 15px 40px 15px;
+        max-width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 20px;
+    }
+    .asistencia-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .asistencia-item input[type="text"] {
+        margin-left: 0;
+        width: 100%;
+        margin-top: 8px;
+    }
+}

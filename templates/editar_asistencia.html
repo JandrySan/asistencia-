@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Editar Asistencia - {{ fecha }}{% endblock %}
+{% block content %}
+<h1>Editar Asistencia: {{ fecha }}</h1>
+<form action="{{ url_for('editar_asistencia', fecha=fecha) }}" method="POST">
+    <div class="asistencia-lista">
+        {% for p in participantes %}
+        {% set reg = registros.get(p._id|string) %}
+        <div class="asistencia-item">
+            <h3>{{ p.nombre }}</h3>
+            <label>
+                <input type="checkbox" name="catequesis_{{ p._id }}" {% if reg and reg.catequesis %}checked{% endif %}>
+                Catequesis
+            </label>
+            <input type="text" name="obs_catequesis_{{ p._id }}" value="{{ reg.obs_catequesis if reg else '' }}" placeholder="Observación Catequesis">
+            <br>
+            <label>
+                <input type="checkbox" name="misa_{{ p._id }}" {% if reg and reg.misa %}checked{% endif %}>
+                Misa
+            </label>
+            <input type="text" name="obs_misa_{{ p._id }}" value="{{ reg.obs_misa if reg else '' }}" placeholder="Observación Misa">
+        </div>
+        {% endfor %}
+    </div>
+    <button type="submit">Actualizar Asistencia</button>
+</form>
+{% endblock %}

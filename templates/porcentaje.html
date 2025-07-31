@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Porcentaje de Asistencia{% endblock %}
+{% block content %}
+<h1>Porcentaje de Asistencia</h1>
+<p>Total días registrados: {{ total_dias }}</p>
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>% Catequesis</th>
+            <th>% Misa</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for r in resultados %}
+        <tr>
+            <td>{{ r.nombre }}</td>
+            <td>{{ r.catequesis }}%</td>
+            <td>{{ r.misa }}%</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="3">No hay datos para mostrar.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

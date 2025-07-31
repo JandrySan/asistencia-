@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Lista de Participantes{% endblock %}
+{% block content %}
+<h1>Lista de Participantes</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Activo</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in participantes %}
+        <tr>
+            <td>{{ p.nombre }}</td>
+            <td>{{ "Sí" if p.activo else "No" }}</td>
+            <td>
+                <a href="{{ url_for('editar_participante', pid=p._id) }}">✏️ Editar</a>
+                |
+                <form action="{{ url_for('eliminar_participante', pid=p._id) }}" method="POST" style="display:inline;" onsubmit="return confirm('¿Eliminar participante?');">
+                    <button type="submit" style="background:none;border:none;color:#ef4444;cursor:pointer;">🗑️ Eliminar</button>
+                </form>
+            </td>
+        </tr>
+        {% else %}
+        <tr><td colspan="3">No hay participantes registrados.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

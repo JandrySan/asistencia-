@@ -1,0 +1,34 @@
+{# base.html #}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Sistema de Asistencia{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Catequesis & Misa</h2>
+        <ul>
+            <li><a href="{{ url_for('registrar_participante') }}">👤 Registrar participante</a></li>
+            <li><a href="{{ url_for('registrar_asistencia') }}">🗓 Registrar asistencia</a></li>
+            <li><a href="{{ url_for('listar_participantes') }}">📋 Ver participantes</a></li>
+            <li><a href="{{ url_for('porcentaje') }}">📊 Ver porcentaje</a></li>
+            <li><a href="{{ url_for('historial_asistencia') }}">📅 Historial asistencia</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for category, message in messages %}
+                        <div class="alert {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

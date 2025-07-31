@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Editar Participante{% endblock %}
+{% block content %}
+<h1>Editar Participante</h1>
+<form action="{{ url_for('editar_participante', pid=participante._id) }}" method="POST">
+    <label for="nombre">Nombre completo:</label><br>
+    <input type="text" id="nombre" name="nombre" value="{{ participante.nombre }}" required>
+    <br><br>
+    <label>
+        <input type="checkbox" name="activo" {% if participante.activo %}checked{% endif %}>
+        Activo
+    </label>
+    <br><br>
+    <button type="submit">Guardar Cambios</button>
+</form>
+{% endblock %}
